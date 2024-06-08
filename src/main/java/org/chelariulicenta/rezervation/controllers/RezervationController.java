@@ -25,14 +25,19 @@ public class RezervationController {
         return allRezervations;
     }
 
-    @GetMapping("/getAllRezervations/{id}")
-    List<VRezervation> getAllRezervationsByUserId(@PathVariable(name = "id") Integer id) {
+    @GetMapping("/getAllUserRezervations/{id}")
+    private List<VRezervation> getAllRezervationsByUserId(@PathVariable(name = "id") Integer id) {
         LOGGER.info("Get all rezervations by user id");
         return rezervationService.getAllRezervationsByUserId(id);
     }
 
     @PostMapping("/saveRezervation")
-    void saveRezervation(@RequestBody VRezervation vRezervation){
+    private void saveRezervation(@RequestBody VRezervation vRezervation){
         rezervationService.saveReservation(vRezervation);
+    }
+
+    @DeleteMapping("/deleteRezervation/{id}")
+    private void deleteRezervation (@PathVariable Integer id){
+        rezervationService.deleteReservation(id);
     }
 }

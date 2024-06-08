@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface RezervationRepository extends JpaRepository<Rezervation, Integer>{
     List<Rezervation> findAllByIdUser(Integer id);
+    void deleteByIdRezervare(Integer id);
 }

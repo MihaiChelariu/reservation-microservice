@@ -52,4 +52,8 @@ public class RezervationService {
 //        LocalDate checkoutDate = rezervation.getCheckoutDate();
         rezervationRepository.saveAndFlush(rezervation);
     }
+
+    public void deleteReservation(Integer id){
+        rezervationRepository.deleteByIdRezervare(id);
+    }
 }
